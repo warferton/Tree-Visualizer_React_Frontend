@@ -1,0 +1,7 @@
+.navbar {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(83, 0, 236, 0.719) !important;
+}
