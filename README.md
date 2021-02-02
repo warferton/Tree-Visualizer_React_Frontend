@@ -1,6 +1,8 @@
-<<<<<<< HEAD
 
-# Getting Started with Create React App
+# Tree-Visualizer_React_Frontend
+
+Frontend React application for the Tree Visualizer.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -70,9 +72,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 # This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# Tree-Visualizer_React_Frontend
-
-Frontend React application for the Tree Visualizer.
-
-> > > > > > > 288720a0eaab5357cd654fdf70383eed111cea11
