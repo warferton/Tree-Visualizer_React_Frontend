@@ -2,15 +2,15 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./css/background.css"
 
 import Navbar from './components/navbar.component'
-import MenuColumn from './components/menu-column.component';
+import Menu from './components/menu.component';
+import {BinaryTree} from './components/tree/tree.component';
 
 function App() {
   return (
     <>
       <Navbar/>
-      <div className="container">
-        <MenuColumn/>
-      </div>
+      <Menu drag/>
+      <BinaryTree/>
     </>
   );
 }
