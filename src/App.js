@@ -5,6 +5,7 @@ import Navbar from './components/navbar.component'
 import Menu from './components/menu.component';
 import {BinaryTree} from './components/tree/tree.component';
 
+
 function App() {
   return (
     <>

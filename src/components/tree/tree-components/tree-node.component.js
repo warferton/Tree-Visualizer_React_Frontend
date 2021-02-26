@@ -6,12 +6,7 @@ import "../../../css/node.css"
 
 
 const whileHover = {
-    cursor: "pointer",
     scale: 1.35,
-    color: "white",
-    textShadow: "0px 0px 3px white",
-    boxShadow: "none",
-    borderColor: "yellow"
 }
 
 const variants={
@@ -29,12 +24,21 @@ const variants={
 }
 
 export default function Node(props){
+    let style = {};
+    if(props.hidden){
+        style = {visibility: 'hidden'};
+    }
     return(
-        <motion.div className="tree-node"
-            whileHover={whileHover}
-            variants={variants}
-        >
-            <h4>{props.data}</h4>
-        </motion.div>
+        <>
+            <motion.div 
+                className={`tree-node id-${props.id} childL-${props.leftChildId} childR-${props.rightChildId}`}
+                id = {props.id}
+                whileHover={whileHover}
+                variants={variants}
+                style={style}
+            >
+                <h4>{props.data}</h4>
+            </motion.div>
+        </>
     )
 }   

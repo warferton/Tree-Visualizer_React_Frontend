@@ -7,3 +7,11 @@
   border: 3px solid black;
   border-radius: 5px;
 }
+
+.tree-node:hover {
+  border-color: yellow;
+  cursor: pointer;
+  color: white;
+  text-shadow: 0px 0px 3px white;
+  box-shadow: none;
+}

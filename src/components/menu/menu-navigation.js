@@ -33,9 +33,9 @@ export const MenuNavigation = () => {
                 >Menu
             </motion.h3>
             <CreateTreeForm/>
-            <hr class="solid"/>
+            <hr className="solid"/>
             <AlgorithmSelect/>
-            <hr class="solid"/>
+            <hr className="solid"/>
         </>
     )
 }
