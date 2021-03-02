@@ -24,7 +24,7 @@ const slideVariants ={
     }
 }
 
-export const MenuNavigation = () => {
+export const MenuNavigation = (props) => {
     return(
         <>
             <motion.h3 
@@ -32,7 +32,7 @@ export const MenuNavigation = () => {
                 variants={slideVariants}
                 >Menu
             </motion.h3>
-            <CreateTreeForm/>
+            <CreateTreeForm fetchTree={props.fetchTree}/>
             <hr className="solid"/>
             <AlgorithmSelect/>
             <hr className="solid"/>

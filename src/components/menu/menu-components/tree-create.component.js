@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { motion } from "framer-motion"
 
 
@@ -21,16 +21,29 @@ const formVariants = {
 }
 
 
-export function CreateTreeForm(){
+export function CreateTreeForm(props){
+    const [num_nodes, setNumNodes] = useState(5)
+    
+    const [] = useState()
+    
+    const onSubmit = (event) =>{
+        if(num_nodes > 0)
+            props.fetchTree(num_nodes);
+        //request random tree
+        else
+            props.fetchTree('random');
+
+        event.preventDefault();
+    }
 
     return(
         <div className="create-tree-form">
             <motion.form
-            
                 variants={formVariants}
-            >{/* TODO:  ADD onSubmit func*/}
+                onSubmit={onSubmit}
+            >
                 <div className="form-group"> {/* implement with slider */}
-                    <input className="form-control" type="number" required placeholder="0" pattern="[0-9]" max="31" min="0"/>
+                    <input className="form-control" type="number" value={num_nodes} onChange={ e => setNumNodes(e.target.value)} required placeholder="0" pattern="[0-9]" max="31" min="0"/>
                     <label className="label-primary">Nodes</label>
                 </div>
 

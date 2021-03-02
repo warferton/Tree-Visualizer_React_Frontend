@@ -5,65 +5,18 @@ import "../../css/tree.css"
 import Node from './tree-components/tree-node.component'
 
 
+//test binary tree object
 
-const test_tree = {
-    root: {
-        parent: null,
-        data: 7,
-        child_right: {
-            parent: 7,
-            data: 32,
-            child_right: {
-                parent: 32,
-                data: 72,
-                child_right: {
-                    parent: 72,
-                    data: 76,
-                    child_right: {
-                        parent: 76,
-                        data: 85,
-                        child_right: null,
-                        child_left: null
-                    },
-                    child_left: {
-                        parent: 76,
-                        data: 73,
-                        child_right: null,
-                        child_left: null
-                    }
-                },
-                child_left: {
-                    parent: 72,
-                    data: 34,
-                    child_right: {
-                        parent: 34,
-                        data: 71,
-                        child_right: null,
-                        child_left: null
-                    },
-                    child_left: null
-                }
-            },
-            child_left: {
-                parent: 32,
-                data: 31,
-                child_right: null,
-                child_left: {
-                    parent: 31,
-                    data: 25,
-                    child_right: null,
-                    child_left: null
-                }
-            }
-        },
-        child_left: null
-    }
-}
+const empty_node = <Node data="-" hidden  key={Math.random()*10*Math.random()}/>
+
+
 
 
 export const BinaryTree = (props) => {
     
-    let tree_display =[]
+    const test_tree = props.structure;
+
+    let tree_display =[];
     
     let tree_level_array = [];
 
@@ -78,7 +31,7 @@ export const BinaryTree = (props) => {
             tree_level_array.push(<Node data={node.child_left.data} key={node.child_left.data}/>);
         }
         else{
-            let el =  <Node data="NA" hidden key={Math.random()+Math.random()*10}/>
+            let el = empty_node;
             tree_level_array.push(el);
         }
             
@@ -88,21 +41,19 @@ export const BinaryTree = (props) => {
             tree_level_array.push(<Node data={node.child_right.data} key={node.child_right.data}/>);
         }
         else{
-            let el =  <Node data="NA" hidden key={Math.random()*10*Math.random()}/>
+            let el = empty_node;
             tree_level_array.push(el);
         }
     }
     
     
-    
+    //TODO: comment
     const populateTree = (tree) => {
 
         let queue = [];
         queue.push(tree.root);
 
         let current_node = queue.shift();
-
-        // temp_array.push(current_node.data);
 
         let element = <Node data={current_node.data} key={current_node.data}/>
         tree_display.push([element]);
@@ -112,7 +63,6 @@ export const BinaryTree = (props) => {
             pushNodeToQueue(current_node);
             
             if(queue.length < 1){
-                // console.log(children_array);
                 tree_display.push(tree_level_array);
                 queue = children_array;
                 //empty children array
@@ -123,11 +73,23 @@ export const BinaryTree = (props) => {
             current_node = queue.shift();
         }
             
-        //if tree level is cleared
+        //TODO: comments
         console.log(tree_display);
-        tree_display = tree_display.map(array => <div className="tree-level" key={array[0]}>{array}</div>)
+        tree_display = tree_display.map((array,index) => {
+            console.log(index);
+            console.log('length= ' + array.length);
+            if(array.length < (Math.pow(2, index))){ 
+                let diff = Math.pow(2, index) - array.length;
+                console.log(diff);
+                while(diff>0){
+                    array.unshift(empty_node);
+                    diff--;
+                }
+            }
+            return <div className="tree-level" key={array[0]}>{array}</div>})
+            //remove last
+            tree_display.pop()
     }  
-
     
 
     const variants = {

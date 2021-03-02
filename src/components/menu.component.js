@@ -34,7 +34,9 @@ const childrenVariants ={
     }
 }
 
-export default function Menu(){
+
+
+export default function Menu(props){
      const [isOpen, toggleOpen] = useCycle(false, true);
     return (
         <>
@@ -45,7 +47,7 @@ export default function Menu(){
             variants={sidebar}
             >
                 <MenuToggle toggle={ () => toggleOpen()} />
-                <MenuNavigation variants={childrenVariants}/>
+                <MenuNavigation variants={childrenVariants} fetchTree={props.fetchTree}/>
             </motion.div>
         </>
     )
